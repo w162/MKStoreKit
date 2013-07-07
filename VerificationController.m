@@ -313,9 +313,12 @@ static VerificationController *singleton;
         failCount++;
     }
     
-    if ([[UIDevice currentDevice] respondsToSelector:NSSelectorFromString(@"identifierForVendor")]) // iOS 6?
-    {
 #if IS_IOS6_AWARE
+    if (YES)
+#else
+    if ([[UIDevice currentDevice] respondsToSelector:NSSelectorFromString(@"identifierForVendor")]) // iOS 6?
+#endif
+    {
         // iOS 6 (or later)
         NSString *localIdentifier                   = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
         NSString *purchaseInfoUniqueVendorId        = [purchaseInfoFromTransaction objectForKey:@"unique-vendor-identifier"];
@@ -331,8 +334,9 @@ static VerificationController *singleton;
                 failCount++;
             }
         }
-#endif
-    } else {
+    }
+#if !IS_IOS6_AWARE
+    else {
         // Pre iOS 6 
         NSString *localIdentifier           = [UIDevice currentDevice].uniqueIdentifier;
         NSString *purchaseInfoUniqueId      = [purchaseInfoFromTransaction objectForKey:@"unique-identifier"];
@@ -345,6 +349,7 @@ static VerificationController *singleton;
             failCount++;
         }        
     }
+#endif
     
     
     // Do addition time checks for the transaction and receipt.

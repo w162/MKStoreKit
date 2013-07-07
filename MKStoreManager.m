@@ -433,7 +433,17 @@ static MKStoreManager* _sharedStoreManager;
 - (void) buyFeature:(NSString*) featureId
          onComplete:(void (^)(NSString*, NSData*, NSArray*)) completionBlock
         onCancelled:(void (^)(void)) cancelBlock
+            onError:(void(^)(NSString* errorMessage)) errorBlock
 {
+    NSArray *allIds = [self.purchasableObjects valueForKey:@"productIdentifier"];
+    int index = [allIds indexOfObject:featureId];
+    
+    if(index == NSNotFound)
+    {
+        errorBlock(@"Unable to find this product");
+        return;
+    }
+    
   self.onTransactionCompleted = completionBlock;
   self.onTransactionCancelled = cancelBlock;
   

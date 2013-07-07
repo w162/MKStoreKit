@@ -4,22 +4,26 @@
 <dict>
 	<key>Consumables</key>
 	<dict>
-		<key>com.steinlogic.iap6test.consumable</key>
+		<key>com.premiereliaison.WordOdyssey.Buy500Smileys</key>
 		<dict>
 			<key>Count</key>
 			<integer>500</integer>
 			<key>Name</key>
-			<string>EggBasket</string>
+			<string>Smileys</string>
+		</dict>
+		<key>com.premiereliaison.WordOdyssey.Buy5000Smileys</key>
+		<dict>
+			<key>Count</key>
+			<integer>5000</integer>
+			<key>Name</key>
+			<string>Smileys</string>
 		</dict>
 	</dict>
 	<key>Non-Consumables</key>
 	<array>
-		<string>com.steinlogic.iap6test.nonconsumable</string>
+		<string>com.premiereliaison.WordOdyssey.RemoveAdBanner</string>
 	</array>
 	<key>Subscriptions</key>
-	<dict>
-		<key>com.steinlogic.iap6test.autorenew</key>
-		<integer>7</integer>
-	</dict>
+	<dict/>
 </dict>
 </plist>
