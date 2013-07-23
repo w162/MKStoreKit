@@ -63,6 +63,11 @@
 @property (strong, nonatomic) NSMutableArray *hostedContents;
 @property (nonatomic, copy) void (^hostedContentDownloadStatusChangedHandler)(NSArray* hostedContent);
 #endif
+
+//
+@property (nonatomic, strong) NSError* buyFeatureCancelledError;        // Use it to return an error which mentions why the buyFeature method was cancelled
+//
+
 // convenience methods
 //returns a dictionary with all prices for identifiers
 - (NSMutableDictionary *)pricesDictionary;
