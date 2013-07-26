@@ -65,7 +65,7 @@
 #endif
 
 //
-@property (nonatomic, strong) NSError* buyFeatureCancelledError;        // Use it to return an error which mentions why the buyFeature method was cancelled
+//@property (nonatomic, strong) NSError* buyFeatureCancelledError;        // Use it to return an error which mentions why the buyFeature method was cancelled
 //
 
 // convenience methods

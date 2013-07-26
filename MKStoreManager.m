@@ -447,7 +447,7 @@ static MKStoreManager* _sharedStoreManager;
   self.onTransactionCompleted = completionBlock;
   self.onTransactionCancelled = cancelBlock;
     
-    self.buyFeatureCancelledError = nil;
+  //self.buyFeatureCancelledError = nil;
   
   [MKSKProduct verifyProductForReviewAccess:featureId
                                  onComplete:^(NSNumber * isAllowed)
@@ -646,7 +646,7 @@ static MKStoreManager* _sharedStoreManager;
       // read from receipts and verify here
       receiptData = [self receiptFromBundle];
       if(!receiptData) {
-          self.buyFeatureCancelledError = nil;
+        //self.buyFeatureCancelledError = nil;
         if(self.onTransactionCancelled)
         {
           self.onTransactionCancelled(productIdentifier);
@@ -673,7 +673,7 @@ static MKStoreManager* _sharedStoreManager;
        }
                                    onError:^(NSError* error)
        {
-           self.buyFeatureCancelledError = nil;
+         //self.buyFeatureCancelledError = nil;
          if(self.onTransactionCancelled)
          {
            self.onTransactionCancelled(productIdentifier);
@@ -768,7 +768,7 @@ static MKStoreManager* _sharedStoreManager;
 	
   [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
   
-    self.buyFeatureCancelledError = transaction.error;
+  //self.buyFeatureCancelledError = transaction.error;
   if(self.onTransactionCancelled)
     self.onTransactionCancelled();
 }
